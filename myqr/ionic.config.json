@@ -1,0 +1,8 @@
+{
+  "name": "myqr",
+  "app_id": "91bb763f",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
