@@ -1,0 +1,8 @@
+{
+  "name": "myVoto",
+  "app_id": "0666533f",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

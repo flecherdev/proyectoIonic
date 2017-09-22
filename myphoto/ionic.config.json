@@ -1,0 +1,8 @@
+{
+  "name": "myphoto",
+  "app_id": "ab5db9a6",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

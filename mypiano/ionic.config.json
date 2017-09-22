@@ -1,0 +1,8 @@
+{
+  "name": "mypiano",
+  "app_id": "b83b4527",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
