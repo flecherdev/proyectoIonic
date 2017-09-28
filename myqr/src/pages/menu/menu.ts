@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { Toast } from '@ionic-native/toast';
 import { ListaCargaPage } from '../lista-carga/lista-carga';
+import { AngularFireDatabase } from 'angularfire2/database';
+
 
 @Component({
   selector: 'page-menu',
@@ -19,11 +21,11 @@ export class MenuPage {
              {clave:"8c95def646b6127282ed50454b73240300dccabc",valor:10}];
     
   constructor(public navCtrl: NavController, public navParams: NavParams, private barcodeScanner: BarcodeScanner
-              ,private toast: Toast) {}
+              ,private toast: Toast, private database: AngularFireDatabase) {}
 
   async scan(){
     this.options = {
-        prompt : "Scan your barcode "
+        prompt : "Escanea el QR"
     }
     this.barcodeScanner.scan(this.options).then((barcodeData) => {
         console.log(barcodeData);
@@ -31,7 +33,7 @@ export class MenuPage {
         this.navParams.data = barcodeData;
         this.verificarCodigos(barcodeData.text);
     }, (err) => {
-        console.log("Error occured : " + err);
+        console.log("Sucedio un error : " + err);
     });         
   }   
   
@@ -67,5 +69,13 @@ export class MenuPage {
     this.navCtrl.push(ListaCargaPage,this.codigos);
   }
   
+  miLista(codigo){
+    const queryObservable = this.database.list('/codigos', {
+      query: {
+        orderByChild: 'size',
+        equalTo: 'large' 
+      }
+    });
+  }
 
 }

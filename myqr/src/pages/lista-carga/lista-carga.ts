@@ -21,7 +21,6 @@ export class ListaCargaPage {
 
   cont = 0;
 
-  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.codigos.forEach(cod => {
       this.cont += cod.valor;
@@ -29,7 +28,6 @@ export class ListaCargaPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ListaCargaPage');
     console.log(this.codigos);
   }
 

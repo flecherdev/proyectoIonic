@@ -38,7 +38,7 @@ export class LoginPage {
     this.usuarios.forEach(usuarios => {
       if((usuarios.nombre == usuario.nombre) && (usuarios.clave == usuario.clave)){
         //return retorno = "El usuario se logeo";
-        this.navCtrl.push(MenuPage);
+        this.navCtrl.setRoot(MenuPage);
       }else{
         //alert("El usuario no se encuentra en la base") 
       }

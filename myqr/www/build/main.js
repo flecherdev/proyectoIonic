@@ -38,7 +38,6 @@ var ListaCargaPage = (function () {
         });
     }
     ListaCargaPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ListaCargaPage');
         console.log(this.codigos);
     };
     return ListaCargaPage;
@@ -145,7 +144,7 @@ var LoginPage = (function () {
         this.usuarios.forEach(function (usuarios) {
             if ((usuarios.nombre == usuario.nombre) && (usuarios.clave == usuario.clave)) {
                 //return retorno = "El usuario se logeo";
-                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__menu_menu__["a" /* MenuPage */]);
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__menu_menu__["a" /* MenuPage */]);
             }
             else {
                 //alert("El usuario no se encuentra en la base") 
@@ -180,6 +179,7 @@ LoginPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_barcode_scanner__ = __webpack_require__(273);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_toast__ = __webpack_require__(274);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lista_carga_lista_carga__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__ = __webpack_require__(231);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -229,12 +229,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
 var MenuPage = (function () {
-    function MenuPage(navCtrl, navParams, barcodeScanner, toast) {
+    function MenuPage(navCtrl, navParams, barcodeScanner, toast, database) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.barcodeScanner = barcodeScanner;
         this.toast = toast;
+        this.database = database;
         this.dato = "";
         this.codigos = [{ clave: "2786f4877b9091dcad7f35751bfcf5d5ea712b2f", valor: 100 },
             { clave: "ae338e4e0cbb4e4bcffaf9ce5b409feb8edd5172", valor: 50 },
@@ -245,7 +247,7 @@ var MenuPage = (function () {
             var _this = this;
             return __generator(this, function (_a) {
                 this.options = {
-                    prompt: "Scan your barcode "
+                    prompt: "Escanea el QR"
                 };
                 this.barcodeScanner.scan(this.options).then(function (barcodeData) {
                     console.log(barcodeData);
@@ -253,7 +255,7 @@ var MenuPage = (function () {
                     _this.navParams.data = barcodeData;
                     _this.verificarCodigos(barcodeData.text);
                 }, function (err) {
-                    console.log("Error occured : " + err);
+                    console.log("Sucedio un error : " + err);
                 });
                 return [2 /*return*/];
             });
@@ -283,6 +285,14 @@ var MenuPage = (function () {
         //this.navCtrl.setRoot(ListaCargaPage,this.navParams);
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__lista_carga_lista_carga__["a" /* ListaCargaPage */], this.codigos);
     };
+    MenuPage.prototype.miLista = function (codigo) {
+        var queryObservable = this.database.list('/codigos', {
+            query: {
+                orderByChild: 'size',
+                equalTo: 'large'
+            }
+        });
+    };
     return MenuPage;
 }());
 MenuPage = __decorate([
@@ -290,7 +300,7 @@ MenuPage = __decorate([
         selector: 'page-menu',template:/*ion-inline-start:"/home/ezequiel/proyectoIonic/myqr/src/pages/menu/menu.html"*/'<!--\n  Generated template for the MenuPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="naranja">\n    <ion-title>Menu</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n  <button ion-button (click)="scan()">Escanear QR </button>\n  <button ion-button (click)="listaCarga()">Codigos cargados </button>\n  <div *ngIf="scanData">\n      <p>Scanned Text : {{scanData.text}} </p>\n      <p>Scanned Format : {{scanData.format}} </p>\n      <p>Scanned Cancelled : {{scanData.cancelled}}</p>\n  </div>\n\n  <ion-list>\n    <ion-item></ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/home/ezequiel/proyectoIonic/myqr/src/pages/menu/menu.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_barcode_scanner__["a" /* BarcodeScanner */],
-        __WEBPACK_IMPORTED_MODULE_3__ionic_native_toast__["a" /* Toast */]])
+        __WEBPACK_IMPORTED_MODULE_3__ionic_native_toast__["a" /* Toast */], __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__["a" /* AngularFireDatabase */]])
 ], MenuPage);
 
 //# sourceMappingURL=menu.js.map
