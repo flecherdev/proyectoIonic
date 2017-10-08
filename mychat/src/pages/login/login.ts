@@ -4,6 +4,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { UsuarioItem } from '../../models/usuarios-list/usuarios-list.interface';
 
+import { PrincipalPage } from '../principal/principal';
+import { TabsPage } from '../tabs/tabs';
 
 @Component({
   selector: 'page-login',
@@ -17,26 +19,30 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private database: AngularFireDatabase) {
     //this.usuarioListRef$ = this.database.list('usuarios');
+    
     this.database.list('usuarios').subscribe(usuarios => this.usuarios = usuarios,error => console.log(error));
   }
 
   login(){
     console.log(this.usuarios);
-    this.ingreso = this.buscarUsuario(this.usuarioItem);
+    //this.ingreso = this.buscarUsuario(this.usuarioItem);
+    this.buscarUsuario(this.usuarioItem);
   }
 
-  buscarUsuario(usuario: UsuarioItem):string{
-    let retorno = "El usuario no esta registrado";
+  buscarUsuario(usuario: UsuarioItem):void{
+    //let retorno = "El usuario no esta registrado";
 
-    let miUsuario: UsuarioItem;
+    //let miUsuario: UsuarioItem;
 
     this.usuarios.forEach(usuarios => {
       if((usuarios.nombre == usuario.nombre) && (usuarios.clave == usuario.clave)){
-        return retorno = "El usuario se logeo";
+        //return retorno = "El usuario se logeo";
+        console.log("dentro del foreach");
+        this.navCtrl.setRoot(TabsPage,{"usuario":this.usuarioItem.nombre});
       }
     });
 
-    return retorno;
+    //return retorno;
   }
 
 }

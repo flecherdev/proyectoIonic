@@ -15,13 +15,20 @@
 <ion-content padding>
   <button ion-button (click)="scan()">Escanear QR </button>
   <button ion-button (click)="listaCarga()">Codigos cargados </button>
+  <button ion-button (click)="verificarCodigos('2786f4877b9091dcad7f35751bfcf5d5ea712b2f')">Test </button>
   <div *ngIf="scanData">
       <p>Scanned Text : {{scanData.text}} </p>
       <p>Scanned Format : {{scanData.format}} </p>
       <p>Scanned Cancelled : {{scanData.cancelled}}</p>
   </div>
 
-  <ion-list>
-    <ion-item></ion-item>
+ <ion-list>
+    <!--  Recorro la lista de la referencia a codigos$-->
+     <ion-item *ngFor="let item of codigosListRef$ | async">
+      <h2>Clave: {{item.clave}}</h2>
+      <h3>Valor: {{item.valor}}</h3>
+      
+    </ion-item>
+  
   </ion-list>
 </ion-content>

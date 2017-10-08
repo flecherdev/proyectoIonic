@@ -1,59 +1,4 @@
-webpackJsonp([1],{
-
-/***/ 138:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListaCargaPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(47);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the ListaCargaPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var ListaCargaPage = (function () {
-    function ListaCargaPage(navCtrl, navParams) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.codigos = [{ clave: "2786f4877b9091dcad7f35751bfcf5d5ea712b2f", valor: 100 },
-            { clave: "ae338e4e0cbb4e4bcffaf9ce5b409feb8edd5172", valor: 50 },
-            { clave: "8c95def646b6127282ed50454b73240300dccabc", valor: 10 }];
-        this.cont = 0;
-        this.codigos.forEach(function (cod) {
-            _this.cont += cod.valor;
-        });
-    }
-    ListaCargaPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ListaCargaPage');
-        console.log(this.codigos);
-    };
-    return ListaCargaPage;
-}());
-ListaCargaPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPage */])(),
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-lista-carga',template:/*ion-inline-start:"/home/ezequiel/proyectoIonic/myqr/src/pages/lista-carga/lista-carga.html"*/'<!--\n  Generated template for the ListaCargaPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="naranja">\n    <ion-title>Lista de Cargas</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n  <ion-list>\n    <ion-item *ngFor="let dato of codigos">\n      <p>{{dato.valor}}</p>\n    </ion-item>\n    <p>Total: {{cont}}</p>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/home/ezequiel/proyectoIonic/myqr/src/pages/lista-carga/lista-carga.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
-], ListaCargaPage);
-
-//# sourceMappingURL=lista-carga.js.map
-
-/***/ }),
+webpackJsonp([0],{
 
 /***/ 146:
 /***/ (function(module, exports) {
@@ -73,27 +18,19 @@ webpackEmptyAsyncContext.id = 146;
 /***/ }),
 
 /***/ 187:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-var map = {
-	"../pages/lista-carga/lista-carga.module": [
-		406,
-		0
-	]
-};
-function webpackAsyncContext(req) {
-	var ids = map[req];
-	if(!ids)
-		return Promise.reject(new Error("Cannot find module '" + req + "'."));
-	return __webpack_require__.e(ids[1]).then(function() {
-		return __webpack_require__(ids[0]);
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
 	});
-};
-webpackAsyncContext.keys = function webpackAsyncContextKeys() {
-	return Object.keys(map);
-};
-webpackAsyncContext.id = 187;
-module.exports = webpackAsyncContext;
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 187;
 
 /***/ }),
 
@@ -103,10 +40,10 @@ module.exports = webpackAsyncContext;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(231);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(269);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__menu_menu__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(268);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__menu_menu__ = __webpack_require__(271);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -145,7 +82,7 @@ var LoginPage = (function () {
         this.usuarios.forEach(function (usuarios) {
             if ((usuarios.nombre == usuario.nombre) && (usuarios.clave == usuario.clave)) {
                 //return retorno = "El usuario se logeo";
-                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__menu_menu__["a" /* MenuPage */]);
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__menu_menu__["a" /* MenuPage */]);
             }
             else {
                 //alert("El usuario no se encuentra en la base") 
@@ -163,23 +100,24 @@ LoginPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-login',template:/*ion-inline-start:"/home/ezequiel/proyectoIonic/myqr/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="naranja">\n    <ion-title text-center>Login de Usuario</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n  <ion-list>\n    <ion-item>\n      <ion-label floating>Nombre</ion-label>\n      <ion-input type="text" [(ngModel)]="usuarioItem.nombre"></ion-input>\n    </ion-item>\n      \n    <ion-item>\n      <ion-label floating>Clave</ion-label>\n      <ion-input type="password" [(ngModel)]="usuarioItem.clave"></ion-input>\n    </ion-item>    \n  </ion-list>\n  \n  <div padding>\n    <button ion-button color="naranja" (click)="login()" block>Entrar</button>\n  </div>\n\n  <ion-list>\n    <ion-item>\n      <h2>{{ingreso}}</h2>\n    </ion-item>\n  </ion-list>\n\n  <!--<ion-list>\n    <ion-item *ngFor="let usuario of usuarioListRef$ | async">\n      <h2>Nombre: {{usuario.nombre}}</h2>\n      <h3>Clave: {{usuario.clave}}</h3>\n      <h3>ID: {{usuario.id}}</h3>\n      <h3>Sexo: {{usuario.sexo}}</h3>\n    </ion-item>\n  </ion-list> -->\n</ion-content>\n\n'/*ion-inline-end:"/home/ezequiel/proyectoIonic/myqr/src/pages/login/login.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */]])
 ], LoginPage);
 
 //# sourceMappingURL=login.js.map
 
 /***/ }),
 
-/***/ 272:
+/***/ 271:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenuPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_barcode_scanner__ = __webpack_require__(273);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_toast__ = __webpack_require__(274);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lista_carga_lista_carga__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_barcode_scanner__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_toast__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lista_carga_lista_carga__ = __webpack_require__(274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__ = __webpack_require__(73);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -229,31 +167,36 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
+//mi alert
+
 var MenuPage = (function () {
-    function MenuPage(navCtrl, navParams, barcodeScanner, toast) {
+    function MenuPage(navCtrl, navParams, barcodeScanner, toast, database, alertCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.barcodeScanner = barcodeScanner;
         this.toast = toast;
-        this.dato = "";
-        this.codigos = [{ clave: "2786f4877b9091dcad7f35751bfcf5d5ea712b2f", valor: 100 },
-            { clave: "ae338e4e0cbb4e4bcffaf9ce5b409feb8edd5172", valor: 50 },
-            { clave: "8c95def646b6127282ed50454b73240300dccabc", valor: 10 }];
+        this.database = database;
+        this.alertCtrl = alertCtrl;
+        this.codigoItem = {};
+        this.codigosListRef$ = this.database.list('codigos-lista');
+        this.codigosCargaRef$ = this.database.list('codigos');
+        this.valor = this.database.object('estado');
     }
+    // Mofificacion de codigos y estados
     MenuPage.prototype.scan = function () {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
                 this.options = {
-                    prompt: "Scan your barcode "
+                    prompt: "Escanea el QR"
                 };
                 this.barcodeScanner.scan(this.options).then(function (barcodeData) {
-                    console.log(barcodeData);
                     _this.scanData = barcodeData;
                     _this.navParams.data = barcodeData;
-                    _this.verificarCodigos(barcodeData.text);
+                    _this.verificarCodigos(barcodeData.text.trim());
                 }, function (err) {
-                    console.log("Error occured : " + err);
+                    console.log("Sucedio un error : " + err);
                 });
                 return [2 /*return*/];
             });
@@ -261,39 +204,191 @@ var MenuPage = (function () {
     };
     MenuPage.prototype.verificarCodigos = function (datosBar) {
         var _this = this;
-        this.codigos.forEach(function (codigo) {
-            if (codigo.clave == datosBar) {
-                //indica que el codigo se encuentra y se realiza la carga
-                _this.toast.show('Se realizo la carga', '5000', 'center').subscribe(function (toast) {
-                    console.log(toast);
-                });
-                return;
-            }
-            _this.toast.show('El codigo ya fue registrado', '5000', 'center').subscribe(function (toast) {
-                console.log(toast);
+        //this.presentValor(datosBar);
+        var cod2;
+        var cod1;
+        var ingreso = false;
+        var codigoDeBusqueda = this.traerUnCodigo(datosBar.trim());
+        var codigoUsuario = this.traerUnCodigoUsuario(datosBar.trim());
+        codigoDeBusqueda.forEach(function (codigo1) {
+            codigoUsuario.forEach(function (codigo2) {
+                console.log(codigo2.lendatosBarg);
+                if (typeof codigo2[0] !== 'undefined') {
+                    if (codigo1.values().next().value.clave == codigo2.values().next().value.clave) {
+                        cod1 = codigo1.values().next().value.clave;
+                        cod2 = codigo2.values().next().value.clave;
+                        //ingreso = true;
+                    }
+                }
+                else {
+                    cod1 = codigo1.values().next().value;
+                    _this.agregarCodigo(cod1);
+                }
             });
         });
     };
-    MenuPage.prototype.mostrar = function () {
-        this.codigos.forEach(function (codigo) {
-            console.log(codigo.clave + " " + codigo.valor);
-        });
-    };
+    /* mostrar(){
+       this.codigos.forEach(codigo =>{
+         console.log(codigo.clave +" "+codigo.valor);
+       });
+     }*/
     MenuPage.prototype.listaCarga = function () {
         //this.navCtrl.setRoot(ListaCargaPage,this.navParams);
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__lista_carga_lista_carga__["a" /* ListaCargaPage */], this.codigos);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__lista_carga_lista_carga__["a" /* ListaCargaPage */]);
+    };
+    MenuPage.prototype.traerUnCodigo = function (codigo) {
+        var codigoBusqueda;
+        try {
+            codigoBusqueda = this.database.list('/codigos', {
+                query: {
+                    orderByChild: 'clave',
+                    equalTo: codigo
+                }
+            });
+        }
+        catch (error) {
+            console.log(error);
+            return false;
+        }
+        return codigoBusqueda;
+    };
+    MenuPage.prototype.traerUnCodigoUsuario = function (codigo) {
+        var codigoBusqueda;
+        try {
+            codigoBusqueda = this.database.list('/codigos-lista', {
+                query: {
+                    orderByChild: 'clave',
+                    equalTo: codigo
+                }
+            });
+            this.presentValor("El codigo ya se encuentra cargado");
+        }
+        catch (error) {
+            console.log("Error: " + error);
+        }
+        return codigoBusqueda;
+    };
+    MenuPage.prototype.verificarUsuario = function (codigo) {
+        var codigoBusqueda;
+        try {
+            codigoBusqueda = this.database.list('/codigos-lista', {
+                query: {
+                    orderByChild: 'clave',
+                    equalTo: codigo
+                }
+            });
+            //this.presentValor("El codigo ya se encuentra cargado");
+        }
+        catch (error) {
+            console.log("Error: " + error);
+        }
+        return codigoBusqueda._isScalar;
+    };
+    // mis alert
+    MenuPage.prototype.presentAlert = function () {
+        var alert = this.alertCtrl.create({
+            title: 'Problema',
+            subTitle: 'El codigo ya fue utilizado',
+            buttons: ['Aceptar']
+        });
+        alert.present();
+    };
+    MenuPage.prototype.presentOK = function () {
+        var alert = this.alertCtrl.create({
+            title: 'Exito',
+            subTitle: 'Se realizo la carga',
+            buttons: ['Aceptar']
+        });
+        alert.present();
+    };
+    MenuPage.prototype.presentValor = function (text) {
+        var alert = this.alertCtrl.create({
+            title: 'Exito',
+            subTitle: text,
+            buttons: ['Aceptar']
+        });
+        alert.present();
+    };
+    MenuPage.prototype.agregarCodigo = function (codigos) {
+        //console.log(shoppingItem);
+        try {
+            this.codigosListRef$.push({
+                clave: codigos.clave,
+                valor: Number(codigos.valor)
+            });
+            this.presentValor("Se agrego el codigo");
+            //Reser de shoppingItem
+            this.codigoItem = {};
+            return true;
+        }
+        catch (error) {
+            return false;
+        }
+        //Volver a la pagina de ShoppingList
+        //this.navCtrl.pop();
     };
     return MenuPage;
 }());
 MenuPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-menu',template:/*ion-inline-start:"/home/ezequiel/proyectoIonic/myqr/src/pages/menu/menu.html"*/'<!--\n  Generated template for the MenuPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="naranja">\n    <ion-title>Menu</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n  <button ion-button (click)="scan()">Escanear QR </button>\n  <button ion-button (click)="listaCarga()">Codigos cargados </button>\n  <div *ngIf="scanData">\n      <p>Scanned Text : {{scanData.text}} </p>\n      <p>Scanned Format : {{scanData.format}} </p>\n      <p>Scanned Cancelled : {{scanData.cancelled}}</p>\n  </div>\n\n  <ion-list>\n    <ion-item></ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/home/ezequiel/proyectoIonic/myqr/src/pages/menu/menu.html"*/,
+        selector: 'page-menu',template:/*ion-inline-start:"/home/ezequiel/proyectoIonic/myqr/src/pages/menu/menu.html"*/'<!--\n  Generated template for the MenuPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="naranja">\n    <ion-title>Menu</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n  <button ion-button (click)="scan()">Escanear QR </button>\n  <button ion-button (click)="listaCarga()">Codigos cargados </button>\n  <button ion-button (click)="verificarCodigos(\'2786f4877b9091dcad7f35751bfcf5d5ea712b2f\')">Test </button>\n  <div *ngIf="scanData">\n      <p>Scanned Text : {{scanData.text}} </p>\n      <p>Scanned Format : {{scanData.format}} </p>\n      <p>Scanned Cancelled : {{scanData.cancelled}}</p>\n  </div>\n\n <ion-list>\n    <!--  Recorro la lista de la referencia a codigos$-->\n     <ion-item *ngFor="let item of codigosListRef$ | async">\n      <h2>Clave: {{item.clave}}</h2>\n      <h3>Valor: {{item.valor}}</h3>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/home/ezequiel/proyectoIonic/myqr/src/pages/menu/menu.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_barcode_scanner__["a" /* BarcodeScanner */],
-        __WEBPACK_IMPORTED_MODULE_3__ionic_native_toast__["a" /* Toast */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_barcode_scanner__["a" /* BarcodeScanner */],
+        __WEBPACK_IMPORTED_MODULE_3__ionic_native_toast__["a" /* Toast */], __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
 ], MenuPage);
 
 //# sourceMappingURL=menu.js.map
+
+/***/ }),
+
+/***/ 274:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListaCargaPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(73);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ListaCargaPage = (function () {
+    function ListaCargaPage(navCtrl, navParams, database) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.database = database;
+        this.cost = 0;
+        this.codigosListRef$ = this.database.list('codigos-lista');
+        this.contar();
+        console.log(this.cost.toString());
+        //this.codigosListRef$ = this.database.list('codigos-lista');
+        //console.log(this.codigosListRef$);
+    }
+    ListaCargaPage.prototype.contar = function () {
+        var _this = this;
+        this.codigosListRef$.forEach(function (dato) {
+            _this.cost += dato.values().next().value.valor;
+        });
+    };
+    return ListaCargaPage;
+}());
+ListaCargaPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-lista-carga',template:/*ion-inline-start:"/home/ezequiel/proyectoIonic/myqr/src/pages/lista-carga/lista-carga.html"*/'\n<ion-header>\n\n  <ion-navbar color="naranja">\n    <ion-title>Lista de Cargas</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n  <ion-list>\n    <!--  Recorro la lista de la referencia a codigos$-->\n     <ion-item *ngFor="let item of codigosListRef$ | async">\n      <h2>Clave: {{item.clave}}</h2>\n      <h3>Valor: {{item.valor}}</h3>\n    </ion-item>\n    <h3>total:{{cost}}</h3>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/home/ezequiel/proyectoIonic/myqr/src/pages/lista-carga/lista-carga.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */]])
+], ListaCargaPage);
+
+//# sourceMappingURL=lista-carga.js.map
 
 /***/ }),
 
@@ -318,19 +413,19 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(227);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(229);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(340);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(230);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_menu_menu__ = __webpack_require__(272);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_lista_carga_lista_carga__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_menu_menu__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_lista_carga_lista_carga__ = __webpack_require__(274);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_angularfire2__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_angularfire2_database__ = __webpack_require__(231);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_angularfire2_auth__ = __webpack_require__(269);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_angularfire2_database__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_angularfire2_auth__ = __webpack_require__(268);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__firebase_credentials__ = __webpack_require__(405);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_barcode_scanner__ = __webpack_require__(273);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_toast__ = __webpack_require__(274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_barcode_scanner__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_toast__ = __webpack_require__(273);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -370,18 +465,14 @@ AppModule = __decorate([
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
-                links: [
-                    { loadChildren: '../pages/lista-carga/lista-carga.module#ListaCargaPageModule', name: 'ListaCargaPage', segment: 'lista-carga', priority: 'low', defaultHistory: [] }
-                ]
-            }),
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */]),
             //inicializamos las credenciales de conexion a la base de firebase
             __WEBPACK_IMPORTED_MODULE_9_angularfire2__["a" /* AngularFireModule */].initializeApp(__WEBPACK_IMPORTED_MODULE_12__firebase_credentials__["a" /* FIREBASE_CREDENTIALS */]),
             //modulo necesario para la conexion
             __WEBPACK_IMPORTED_MODULE_10_angularfire2_database__["b" /* AngularFireDatabaseModule */],
             __WEBPACK_IMPORTED_MODULE_11_angularfire2_auth__["b" /* AngularFireAuthModule */]
         ],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* IonicApp */]],
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
         entryComponents: [
             __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
             __WEBPACK_IMPORTED_MODULE_6__pages_login_login__["a" /* LoginPage */],
@@ -393,7 +484,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */],
             __WEBPACK_IMPORTED_MODULE_13__ionic_native_barcode_scanner__["a" /* BarcodeScanner */],
             __WEBPACK_IMPORTED_MODULE_14__ionic_native_toast__["a" /* Toast */],
-            { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicErrorHandler */] },
+            { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
         ]
     })
 ], AppModule);
@@ -408,7 +499,7 @@ AppModule = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(227);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(229);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(230);
@@ -452,13 +543,13 @@ var MyApp = (function () {
     return MyApp;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */]),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */])
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */]),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */])
 ], MyApp.prototype, "nav", void 0);
 MyApp = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/home/ezequiel/proyectoIonic/myqr/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/ezequiel/proyectoIonic/myqr/src/app/app.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
 ], MyApp);
 
 //# sourceMappingURL=app.component.js.map

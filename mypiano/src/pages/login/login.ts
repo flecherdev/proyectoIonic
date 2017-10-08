@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { AngularFireDatabase } from 'angularfire2/database';
 import { UsuarioItem } from '../../models/usuarios-list/usuarios-list.interface';
-
+import { PrincipalPage } from '../principal/principal';
 
 
 @Component({
@@ -23,21 +23,23 @@ export class LoginPage {
 
   login(){
     console.log(this.usuarios);
-    this.ingreso = this.buscarUsuario(this.usuarioItem);
+    //this.ingreso = this.buscarUsuario(this.usuarioItem);
+    this.buscarUsuario(this.usuarioItem)
   }
 
-  buscarUsuario(usuario: UsuarioItem):string{
-    let retorno = "El usuario no esta registrado";
+  buscarUsuario(usuario: UsuarioItem):void{
+    //let retorno = "El usuario no esta registrado";
 
-    let miUsuario: UsuarioItem;
+    //let miUsuario: UsuarioItem;
 
     this.usuarios.forEach(usuarios => {
       if((usuarios.nombre == usuario.nombre) && (usuarios.clave == usuario.clave)){
-        return retorno = "El usuario se logeo";
+        //return retorno = "El usuario se logeo";
+        this.navCtrl.setRoot(PrincipalPage);  
       }
     });
 
-    return retorno;
+    //return retorno;
   }
 
 }
