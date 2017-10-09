@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams} from 'ionic-angular';
 
 import { AngularFireDatabase } from 'angularfire2/database';
 import { UsuarioItem } from '../../models/usuarios-list/usuarios-list.interface';
@@ -14,13 +14,15 @@ import { TabsPage } from '../tabs/tabs';
 export class LoginPage {
 
   usuarioItem =  {} as UsuarioItem;
-  ingreso = "";
-  public usuarios: UsuarioItem[];
+  nombre:string;
+  foto:string;
+  usuarios: UsuarioItem[];
+  usuario:UsuarioItem;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private database: AngularFireDatabase) {
+  constructor(public navCtrl: NavController,public navParams: NavParams, private database: AngularFireDatabase) {
     //this.usuarioListRef$ = this.database.list('usuarios');
-    
-    this.database.list('usuarios').subscribe(usuarios => this.usuarios = usuarios,error => console.log(error));
+
+    this.database.list('usuarios-chat').subscribe(usuarios => this.usuarios = usuarios,error => console.log(error));
   }
 
   login(){
@@ -32,17 +34,22 @@ export class LoginPage {
   buscarUsuario(usuario: UsuarioItem):void{
     //let retorno = "El usuario no esta registrado";
 
-    //let miUsuario: UsuarioItem;
 
     this.usuarios.forEach(usuarios => {
+      let thit=this;
       if((usuarios.nombre == usuario.nombre) && (usuarios.clave == usuario.clave)){
-        //return retorno = "El usuario se logeo";
-        console.log("dentro del foreach");
-        this.navCtrl.setRoot(TabsPage,{"usuario":this.usuarioItem.nombre});
+        this.nombre = usuarios.nombre;
+        this.foto = usuarios.foto;
+        
+        console.log(usuarios.nombre);
+        console.log(usuarios.foto);
+        this.navCtrl.setRoot(PrincipalPage,{usuario:this.usuarioItem.nombre,foto:this.foto});//se pasa un parametro a otra pagina
+       //this.navCtrl.setRoot(TabsPage,{"usu": "pepe"});
+      // const profileModal = this.ModalCtrl.create(TabsPage,{nombre : this.nombre});
+      // profileModal.present();
       }
     });
 
-    //return retorno;
   }
 
 }

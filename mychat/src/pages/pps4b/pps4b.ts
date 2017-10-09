@@ -20,7 +20,7 @@ export class Pps4bPage {
   evioMensaje:string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-
+    
   }
 
   agregarItem(){

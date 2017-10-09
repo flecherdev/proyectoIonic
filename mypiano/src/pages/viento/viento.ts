@@ -16,11 +16,11 @@ import { NativeAudio } from '@ionic-native/native-audio';
 export class VientoPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private nativeAudio: NativeAudio) {
-    this.nativeAudio.preloadSimple('uno', 'assets/viento/1.wav');
-    this.nativeAudio.preloadSimple('dos', 'assets/viento/2.wav');
-    this.nativeAudio.preloadSimple('tres', 'assets/viento/3.wav');
-    this.nativeAudio.preloadSimple('cuatro', 'assets/viento/4.wav');
-    this.nativeAudio.preloadSimple('cinco', 'assets/viento/5.wav');
+    this.nativeAudio.preloadSimple('viento1', 'assets/viento/1.wav');
+    this.nativeAudio.preloadSimple('viento2', 'assets/viento/2.wav');
+    this.nativeAudio.preloadSimple('viento3', 'assets/viento/3.wav');
+    this.nativeAudio.preloadSimple('viento4', 'assets/viento/4.wav');
+    this.nativeAudio.preloadSimple('viento5', 'assets/viento/5.wav');
   }
 
   ionViewDidLoad() {
@@ -28,23 +28,23 @@ export class VientoPage {
   }
 
   uno(){
-    this.nativeAudio.play("uno");
+    this.nativeAudio.play('viento1');
   }
 
   dos(){
-    this.nativeAudio.play("dos");
+    this.nativeAudio.play('viento2');
   }
 
   tres(){
-    this.nativeAudio.play("tres");
+    this.nativeAudio.play('viento3');
   }
 
   cuatro(){
-    this.nativeAudio.play("cuatro");
+    this.nativeAudio.play('viento4');
   }
 
   cinco(){
-    this.nativeAudio.play("cinco");
+    this.nativeAudio.play('viento5');
   }
 
 }

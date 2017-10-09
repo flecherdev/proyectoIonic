@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 //import { AboutPage } from '../about/about';
 //import { ContactPage } from '../contact/contact';
@@ -14,6 +15,8 @@ import { LoginPage } from '../login/login';
 })
 export class TabsPage {
 
+  //usuario:string;
+  //foto:string;
 
   tab1Root = PrincipalPage;
   tab2Root = Pps4aPage;
@@ -21,8 +24,14 @@ export class TabsPage {
   //tab1Root = HomePage;
   //tab2Root = AboutPage;
   //tab3Root = ContactPage;
+  
 
-  constructor() {
-
+  constructor(public navCrlt:NavController, public navParams:NavParams) {
+     //this.navCrlt.setRoot(Pps4aPage,{usuario:this.navParams.get('usuario')});
+    // this.usuario = this.navParams.get("usuario");
+     //console.log("enta tabs "+this.usuario);
   }
+
+
+  
 }

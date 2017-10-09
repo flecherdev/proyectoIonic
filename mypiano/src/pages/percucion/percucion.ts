@@ -17,11 +17,11 @@ import { NativeAudio } from '@ionic-native/native-audio';
 export class PercucionPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private nativeAudio: NativeAudio) {
-    this.nativeAudio.preloadSimple('uno', 'assets/percucion/1.wav');
-    this.nativeAudio.preloadSimple('dos', 'assets/percucion/2.mp3');
-    this.nativeAudio.preloadSimple('tres', 'assets/percucion/3.wav');
-    this.nativeAudio.preloadSimple('cuatro', 'assets/percucion/4.wav');
-    this.nativeAudio.preloadSimple('cinco', 'assets/percucion/5.wav');
+    this.nativeAudio.preloadSimple('percucion1', 'assets/percucion/1.wav');
+    this.nativeAudio.preloadSimple('percucion2', 'assets/percucion/2.mp3');
+    this.nativeAudio.preloadSimple('percucion3', 'assets/percucion/3.wav');
+    this.nativeAudio.preloadSimple('percucion4', 'assets/percucion/4.wav');
+    this.nativeAudio.preloadSimple('percucion5', 'assets/percucion/5.wav');
   }
 
   ionViewDidLoad() {
@@ -29,22 +29,22 @@ export class PercucionPage {
   }
 
   uno(){
-    this.nativeAudio.play("uno");
+    this.nativeAudio.play('percucion1');
   }
 
   dos(){
-    this.nativeAudio.play("dos");
+    this.nativeAudio.play('percucion2');
   }
 
   tres(){
-    this.nativeAudio.play("tres");
+    this.nativeAudio.play('percucion3');
   }
 
   cuatro(){
-    this.nativeAudio.play("cuatro");
+    this.nativeAudio.play('percucion4');
   }
 
   cinco(){
-    this.nativeAudio.play("cinco");
+    this.nativeAudio.play('percucion5');
   }
 }
