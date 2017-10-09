@@ -15,6 +15,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FIREBASE_CREDENTIALS } from './firebase.credentials';
+import { MensajesChatProvider } from '../providers/mensajes-chat/mensajes-chat';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { FIREBASE_CREDENTIALS } from './firebase.credentials';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    MensajesChatProvider
   ]
 })
 export class AppModule {}

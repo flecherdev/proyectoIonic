@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+//import { AngularFireDatabase } from 'angularfire2/database';
 
+import { MensajeItem } from '../../models/mensaje-lista/mensaje-list.interface';
 /**
  * Generated class for the Pps4bPage page.
  *
@@ -20,7 +22,7 @@ export class Pps4bPage {
   evioMensaje:string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    
+
   }
 
   agregarItem(){
