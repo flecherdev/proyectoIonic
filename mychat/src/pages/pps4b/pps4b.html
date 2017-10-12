@@ -27,11 +27,14 @@
       </div>
     
       <ion-list>
-        <ion-item>
+        <!--  Recorro la lista de la referencia a codigos$-->
+         <ion-item *ngFor="let mensaje of mensajeLista">
           <ion-avatar item-start>
-            <img src="https://i.pinimg.com/originals/1c/ec/d1/1cecd1e084cd143ce74137e13c6c19ec.png">
+          <img src="./assets/fotos/{{mensaje.foto}}">  
           </ion-avatar>
-          <h3>{{evioMensaje}}</h3>
+          <h2>{{mensaje.nombre}}</h2>
+          <h3>{{mensaje.mensaje}}</h3>
+          <h3 item-end>{{mensaje.hora}}</h3>
         </ion-item>
       </ion-list>
 </ion-content>

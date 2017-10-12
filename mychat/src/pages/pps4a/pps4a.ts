@@ -19,43 +19,41 @@ import { FirebaseListObservable } from 'angularfire2/database';
 })
 export class Pps4aPage implements OnInit{
   
-  item :any [];
   mensaje:string;
-  evioMensaje:string;
   nombre:string;
   foto:string;
   usuario:UsuarioItem;
-  miMensaje:MensajeItem;
-  mensajeLista: MensajeItem[];
+  mensajeLista:MensajeItem[];
+ // listaRef$:FirebaseListObservable<MensajeItem[]>
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menProv:MensajesChatProvider) {
     this.nombre = this.navParams.get('usuario');
     this.foto = this.navParams.get('foto');
-    
+   
     console.log("estoy en pps4a "+this.nombre);
-    //this.mensajeLista$ = this.menProv.traerMensajesSala("pps4a").subscribe();
-    
-    
+  
+   // this.listaRef$ = this.menProv.traerMensajesSala("pps4a");
   }
 
   agregarItem(){
-    this.miMensaje.nombre = this.nombre;
-    this.miMensaje.foto = this.foto;
-    this.miMensaje.mensaje =this.mensaje;
-    this.miMensaje.sala = "pps4a";
+    console.log("------------ en agregar item ------------");
+    console.log(this.nombre+"-"+this.foto+"-"+this.mensaje);
     //this.evioMensaje = this.nombre + " - " +this.mensaje;
-    //this.menProv.agregarChat(this.miMensaje);
+    this.menProv.agregarChat(this.nombre,this.foto,this.mensaje,"pps4a");
   }
 
-  mensageSala(){
-    
-  }
 
   ngOnInit(){
     this.menProv.traerMensajesSala("pps4a")
-                .subscribe(mensajes => {this.mensajeLista = mensajes} ); 
+                .subscribe(mensajes => {
+                  this.mensajeLista = mensajes
+                  console.log(mensajes);
+                } ); 
                 console.log("estoy en ngOnInit ");
-                console.log(this.mensajeLista);
+     
+    console.log(this.mensajeLista);
+    //this.mensajeLista = this.menProv.traerMensajesSala("pps4a");
   }
   
 }

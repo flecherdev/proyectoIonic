@@ -183,7 +183,7 @@ export class MenuPage {
     alert.present();
   }
 
-  igual
+  
   agregarCodigo(codigos: Codigos):boolean{
     //console.log(shoppingItem);
     try {

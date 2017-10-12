@@ -39,9 +39,11 @@
     <!--  Recorro la lista de la referencia a codigos$-->
      <ion-item *ngFor="let mensaje of mensajeLista">
       <ion-avatar item-start>
-      <img src="../assets/fotos/{{mensaje.foto}}">  
+      <img src="./assets/fotos/{{mensaje.foto}}">  
       </ion-avatar>
-      <h3>{{mensaje.nombre}} - {{mensaje.mensaje}}</h3>
+      <h2>{{mensaje.nombre}}</h2>
+      <h3>{{mensaje.mensaje}}</h3>
+      <h3 item-end>{{mensaje.hora}}</h3>
     </ion-item>
   </ion-list>
 

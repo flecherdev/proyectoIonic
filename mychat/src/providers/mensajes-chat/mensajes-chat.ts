@@ -15,20 +15,18 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class MensajesChatProvider {
 
-  
+  miMen = {} as MensajeItem;
   mensajeList : MensajeItem[];
   mensajes: FirebaseListObservable<MensajeItem[]>;
-  mesajesAmbas: FirebaseListObservable<MensajeItem[]>;
+  mensajeRef$: FirebaseListObservable<MensajeItem[]>;
 
   constructor(public datos: AngularFireDatabase) {
    // console.log('Hello MensajesChatProvider Provider');
    // this.mensajeListRef$ = this.datos.list('mensaje-chat');
-
+    this.mensajeRef$ = this.datos.list('mensaje-chat');
   }
 
   traerMensajesSala(sala){
-    
-   
     try {
       this.mensajes = this.datos.list('/mensaje-chat',{
         query:{
@@ -49,15 +47,19 @@ export class MensajesChatProvider {
 
   }
 
- 
 
- /* agregarChat(mensaje: MensajeItem):boolean{
+  agregarChat(nombre,foto,mensaje,sala){
+
+    let date = new Date();
+    console.log(date.getHours()+":"+date.getMinutes()+":"+date.getSeconds());
+    let horaActual:string = date.getHours()+":"+date.getMinutes();
     try {
-      this.mensajeListRef$.push({
-        nombre: mensaje.nombre,
-        foto: mensaje.foto,
-        mensaje: mensaje.mensaje,
-        sale:mensaje.sala
+      this.mensajeRef$.push({
+        nombre: nombre,
+        foto: foto,
+        mensaje: mensaje,
+        sala:sala,
+        hora:horaActual
       });
 
       return true;
@@ -67,5 +69,5 @@ export class MensajesChatProvider {
       return false;  
     }
   }
-*/
+
 }

@@ -1,6 +1,7 @@
 export interface MensajeItem{
-    nombre:string;
     foto:string;
+    hora:string;
     mensaje:string;
+    nombre:string;
     sala:string;
 }
