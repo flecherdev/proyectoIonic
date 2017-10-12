@@ -15,31 +15,43 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class MensajesChatProvider {
 
-  mensajeList: MensajeItem[];
-  mensajeListRef$: FirebaseListObservable<MensajeItem[]>;
+  
+  mensajeList : MensajeItem[];
+  mensajes: FirebaseListObservable<MensajeItem[]>;
+  mesajesAmbas: FirebaseListObservable<MensajeItem[]>;
 
-  constructor(public http: Http,public datos: AngularFireDatabase) {
-    console.log('Hello MensajesChatProvider Provider');
-    this.mensajeListRef$ = this.datos.list('mensajes-chat');
-    
-    this.datos.list('mensajes-chat').subscribe(mensaje =>{
-      this.mensajeList = mensaje;
-    });
+  constructor(public datos: AngularFireDatabase) {
+   // console.log('Hello MensajesChatProvider Provider');
+   // this.mensajeListRef$ = this.datos.list('mensaje-chat');
 
   }
 
   traerMensajesSala(sala){
-    let mensajes: MensajeItem[];
-    this.mensajeList.forEach(mensaje => {
-      if(mensaje.sala == sala){
-        mensajes.push(mensaje);
-      }
-    });
+    
+   
+    try {
+      this.mensajes = this.datos.list('/mensaje-chat',{
+        query:{
+          orderByChild:'sala',
+          equalTo:sala
+        }
+      }) as FirebaseListObservable<MensajeItem[]>;
 
-    return mensajes;
+      
+    } catch (error) {
+      console.log(error);
+    }
+
+    return this.mensajes;
   }
 
-  agregarChat(mensaje: MensajeItem):boolean{
+  traerTodos(){
+
+  }
+
+ 
+
+ /* agregarChat(mensaje: MensajeItem):boolean{
     try {
       this.mensajeListRef$.push({
         nombre: mensaje.nombre,
@@ -55,5 +67,5 @@ export class MensajesChatProvider {
       return false;  
     }
   }
-
+*/
 }

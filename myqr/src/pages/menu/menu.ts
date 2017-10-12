@@ -135,6 +135,7 @@ export class MenuPage {
     }
 
     verificarUsuario(codigo):boolean{
+
       let codigoBusqueda : FirebaseListObservable<Codigos[]>;
    
       try {

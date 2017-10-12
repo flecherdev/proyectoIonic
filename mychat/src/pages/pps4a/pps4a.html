@@ -26,12 +26,22 @@
     <!-- <button ion-button (click)="login()">Registrase</button> -->
   </div>
 
-  <ion-list>
-    <ion-item>
+  <!--<ion-list>
+    <ion-item *ngFor="let item of codigosListRef$ | async">
       <ion-avatar item-start>
         <img src="https://i.pinimg.com/originals/1c/ec/d1/1cecd1e084cd143ce74137e13c6c19ec.png">
       </ion-avatar>
       <h3>{{evioMensaje}}</h3>
+    </ion-item>
+  </ion-list>-->
+
+  <ion-list>
+    <!--  Recorro la lista de la referencia a codigos$-->
+     <ion-item *ngFor="let mensaje of mensajeLista">
+      <ion-avatar item-start>
+      <img src="../assets/fotos/{{mensaje.foto}}">  
+      </ion-avatar>
+      <h3>{{mensaje.nombre}} - {{mensaje.mensaje}}</h3>
     </ion-item>
   </ion-list>
 

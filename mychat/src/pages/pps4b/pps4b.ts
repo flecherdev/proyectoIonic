@@ -20,6 +20,7 @@ export class Pps4bPage {
   item :any [];
   mensaje:string;
   evioMensaje:string;
+  mensajesLista: MensajeItem[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
@@ -30,5 +31,8 @@ export class Pps4bPage {
     console.log("contenido de "+this.evioMensaje);
   }
 
+  mensajesSala(){
+    //this.mensajesLista = this.
+  }
   
 }
