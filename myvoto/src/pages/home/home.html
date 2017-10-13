@@ -1,18 +1,28 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="verde">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Votacion</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <h1>Temas a tratar</h1>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-list>
+    <ion-item>
+      <ion-avatar item-end>
+        <img src="./assets/icon/bien.png" (click)="votoPositivo()">  
+      </ion-avatar>
+      
+      <ion-avatar item-end>
+        <img src="./assets/icon/mal.png" (click)="votoNegativo()">  
+      </ion-avatar>
+      
+      <h2>Colocar plantas</h2>
+    
+    </ion-item>
+  </ion-list>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>

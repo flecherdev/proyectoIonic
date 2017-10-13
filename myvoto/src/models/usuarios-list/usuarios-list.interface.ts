@@ -4,4 +4,5 @@ export interface UsuarioItem {
     nombre:string;
     perfil:string;
     sexo:string;
+    foto:string;
 }

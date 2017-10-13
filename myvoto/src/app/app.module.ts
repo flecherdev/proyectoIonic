@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
+import { EstadoVotacionPage } from '../pages/estado-votacion/estado-votacion';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -19,7 +20,8 @@ import { FIREBASE_CREDENTIALS } from './firebase.credentials';
     MyApp,
     LoginPage,
     HomePage,
-    ListPage
+    ListPage,
+    EstadoVotacionPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { FIREBASE_CREDENTIALS } from './firebase.credentials';
     MyApp,
     LoginPage,
     HomePage,
-    ListPage
+    ListPage,
+    EstadoVotacionPage
   ],
   providers: [
     StatusBar,
