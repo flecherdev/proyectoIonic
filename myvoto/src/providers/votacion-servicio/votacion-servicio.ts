@@ -11,10 +11,11 @@ import { AlertController } from 'ionic-angular';
 export class VotacionServicioProvider {
 
   //Atributos de instancia 
-  miVoto = {} as VotacionItem;
+  miVoto = {} as VotacionItem[];
   miListaVoto : FirebaseListObservable<VotacionItem[]>;
   miListaVotoRef$ : FirebaseListObservable<VotacionItem[]>;
   misTemas: FirebaseListObservable<any[]>;
+  
 
   constructor(private datos:AngularFireDatabase, private altCtrl: AlertController) {
     this.miListaVotoRef$ = this.datos.list('votacion');   
@@ -39,14 +40,14 @@ export class VotacionServicioProvider {
 
 
   compararNombreYVotacion(nombre,votacion,estado){
-    this.traerVotacionPorNombre(nombre).subscribe(vot => {
-      if(vot == votacion){
-        this.presentAlert("Votacion","La votacion ya fue realiza");
-      }else{
-        this.presentAlert("Votacion","Se votas");
+    let entro = false;
+    this.traerVotacionPorNombre(nombre).forEach(vot => {
+      if(vot.values().next().value.votacion == votacion){
+        
       }
+      
     });
-
+    
     
   }
 
@@ -66,7 +67,7 @@ export class VotacionServicioProvider {
             estado: estado,
             votacion: votacion
           });
-    
+          
           return true;
           
         } catch (error) {
