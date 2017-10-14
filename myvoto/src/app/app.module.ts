@@ -17,7 +17,6 @@ import { FIREBASE_CREDENTIALS } from './firebase.credentials';
 import { VotacionServicioProvider } from '../providers/votacion-servicio/votacion-servicio';
 
 
-
 @NgModule({
   declarations: [
     MyApp,
