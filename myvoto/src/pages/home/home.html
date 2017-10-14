@@ -11,16 +11,16 @@
   <h1>Temas a tratar</h1>
 
   <ion-list>
-    <ion-item>
+    <ion-item *ngFor="let tema of temas ">
       <ion-avatar item-end>
-        <img src="./assets/icon/bien.png" (click)="votoPositivo()">  
+        <img src="./assets/icon/bien.png" (click)="votoPositivo(tema)">  
       </ion-avatar>
       
       <ion-avatar item-end>
-        <img src="./assets/icon/mal.png" (click)="votoNegativo()">  
+        <img src="./assets/icon/mal.png" (click)="votoNegativo(tema)">  
       </ion-avatar>
       
-      <h2>Colocar plantas</h2>
+      <h2>{{tema.tema}}</h2>
     
     </ion-item>
   </ion-list>

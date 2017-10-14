@@ -1,5 +1,6 @@
 export interface VotacionItem{
+    estado:string;
     nombre:string;
-    voto:string;
+    votacion:string;
 }
 
