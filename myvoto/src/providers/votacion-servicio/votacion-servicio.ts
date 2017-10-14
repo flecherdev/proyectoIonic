@@ -37,26 +37,17 @@ export class VotacionServicioProvider {
     return this.miListaVoto;
   }
 
-  traerVotacion(votacion){
-    try {
-      this.miListaVoto = this.datos.list('/votacion',{
-        query:{
-          orderByChild:'votacion',
-          equalTo:votacion
-        }
-      }) as FirebaseListObservable<VotacionItem[]>;
 
-      
-    } catch (error) {
-      console.log(error);
-    }
+  compararNombreYVotacion(nombre,votacion,estado){
+    this.traerVotacionPorNombre(nombre).subscribe(vot => {
+      if(vot == votacion){
+        this.presentAlert("Votacion","La votacion ya fue realiza");
+      }else{
+        this.presentAlert("Votacion","Se votas");
+      }
+    });
 
-    return this.miListaVoto;
-  }
-
-  compararNombreYVotacion(nombre,votacion){
-    let nombreRef = this.traerVotacionPorNombre(nombre);
-    let votacionRef = this.traerVotacion(votacion);
+    
   }
 
   traerTemas(){
@@ -64,7 +55,7 @@ export class VotacionServicioProvider {
     return this.misTemas;
   }
 
-  agregarChat(nombre,estado,votacion){
+  agregar(nombre,estado,votacion){
     
         let date = new Date();
         console.log(date.getHours()+":"+date.getMinutes()+":"+date.getSeconds());

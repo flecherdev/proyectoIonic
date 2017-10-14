@@ -21,12 +21,14 @@ export class HomePage implements OnInit {
   votoPositivo(voto){
     console.log("Estoy en postivo");
     console.log(voto.tema);
-    this.votProv.traerPorNombreYVoto(this.nombre,voto.tema);
+    this.votProv.compararNombreYVotacion(this.nombre,voto.tema,"si");
+    //this.votProv.traerPorNombreYVoto(this.nombre,voto.tema);
   }
 
   votoNegativo(voto){
     console.log("Estoy en negativo");
     console.log(voto.tema);
+    this.votProv.compararNombreYVotacion(this.nombre,voto.tema,"no");
   }
 
   ngOnInit(){
