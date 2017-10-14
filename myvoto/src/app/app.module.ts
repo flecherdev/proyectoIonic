@@ -14,6 +14,9 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FIREBASE_CREDENTIALS } from './firebase.credentials';
+import { VotacionServicioProvider } from '../providers/votacion-servicio/votacion-servicio';
+
+
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { FIREBASE_CREDENTIALS } from './firebase.credentials';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    VotacionServicioProvider,
+ 
+ 
   ]
 })
 export class AppModule {}
