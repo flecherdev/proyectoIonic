@@ -14,23 +14,23 @@
   
   <ion-content padding>
     <ion-list>
-      <ion-item>
+      <ion-item class="animated fadeInLeft">
         <ion-label floating>Nombre</ion-label>
-        <ion-input type="text" [(ngModel)]="usuarioItem.nombre"></ion-input> <!-- [(ngModel)]="usuario.nombre" -->
+        <ion-input  type="text" [(ngModel)]="usuarioItem.nombre"></ion-input> <!-- [(ngModel)]="usuario.nombre" -->
       </ion-item>
         
-       <ion-item>
+       <ion-item class="animated fadeInRight">
         <ion-label floating>Clave</ion-label>
-        <ion-input type="password" [(ngModel)]="usuarioItem.clave"></ion-input><!-- [(ngModel)]="usuario.clave" -->
+        <ion-input  type="password" [(ngModel)]="usuarioItem.clave"></ion-input><!-- [(ngModel)]="usuario.clave" -->
       </ion-item>    
     </ion-list>
     
     <div padding>
-      <button ion-button color="verde" (click)="login()" block>Entrar</button>
-      <!-- <button ion-button (click)="login()">Registrase</button> -->
+      <button ion-button color="verde" (click)="login()" class="animated rubberBand" block>Entrar</button>
+      <button ion-button color="azul" (click)="loguearAdmin()" class="animated rubberBand" full>Como Administrador</button>
+      <button ion-button color="amarillo" (click)="loguearUsuario()" class="animated rubberBand" full>Como Usuario</button> 
     </div>
   
-
   
     <!--<ion-list>
       <ion-item *ngFor="let usuario of usuarioListRef$ | async">
