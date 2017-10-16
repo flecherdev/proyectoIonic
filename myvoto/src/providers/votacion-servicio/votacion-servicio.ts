@@ -22,6 +22,8 @@ export class VotacionServicioProvider {
 
   constructor(private datos:AngularFireDatabase, private altCtrl: AlertController) {
     this.miListaVotoRef$ = this.datos.list('votacion');  
+    this.miListaVotoRefMatafuego$ = this.datos.list('votacion-matafuegos');
+    this.miListaVotosRefAdvertencias$ = this.datos.list('votacion-advertencia');
     this.miListaVotoRef$.subscribe(datos => {this.lista = datos}); 
   }
 
@@ -73,24 +75,51 @@ export class VotacionServicioProvider {
   }
 
   agregar(estado,nombre,votacion){
-
-        let date = new Date();
-        console.log(date.getHours()+":"+date.getMinutes()+":"+date.getSeconds());
-        let horaActual:string = date.getHours()+":"+date.getMinutes();
+    let date = new Date();
+    console.log(date.getHours()+":"+date.getMinutes()+":"+date.getSeconds());
+    let horaActual:string = date.getHours()+":"+date.getMinutes();
+    switch (votacion) {
+      case "Colocar plantas":
         try {
           this.miListaVotoRef$.push({
             estado: estado,
             nombre: nombre,
             votacion: votacion
           });
-          
-          return true;
-          
         } catch (error) {
-          console.log(error);  
-          return false;  
+          console.log(error);    
         }
-      }
+        break;
+      case "Colocar matafuegos":
+        try {
+          this.miListaVotoRefMatafuego$.push({
+            estado: estado,
+            nombre: nombre,
+            votacion: votacion
+          });
+        } catch (error) {
+          console.log(error);    
+        }
+        break;
+      case "Colocar señales de advertencia":
+        try {
+          this.miListaVotosRefAdvertencias$.push({
+            estado: estado,
+            nombre: nombre,
+            votacion: votacion
+          });
+        } catch (error) {
+          console.log(error);    
+        }
+        break;
+
+      default:
+        console.log("ninguna opcion definida :(");
+        break;
+    }
+        
+        
+  }
 
   presentAlert(titulo,mensaje) {
     const alert = this.altCtrl.create({
@@ -100,5 +129,4 @@ export class VotacionServicioProvider {
       });
       alert.present();
     }
-
 }
