@@ -39,7 +39,9 @@ $colors: (
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
-  marron:     #AA4400
+  marron:     #AA4400,
+  amarillo:   #F7DC6F,
+  verde:      #5BFF33
 );
 
 
@@ -87,3 +89,4 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+@import url("https://fonts.googleapis.com/css?family=Fascinate+Inline");
