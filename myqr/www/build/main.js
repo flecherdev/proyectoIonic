@@ -94,11 +94,19 @@ var LoginPage = (function () {
         /*this.auth.auth.signInWithEmailAndPassword(mail,usuario.clave.toString()).then(r=>{console.log(r);});
         return "ss";*/
     };
+    LoginPage.prototype.loguearAdmin = function () {
+        this.usuarioItem.nombre = "admin";
+        this.usuarioItem.clave = 11;
+    };
+    LoginPage.prototype.loguearUsuario = function () {
+        this.usuarioItem.nombre = "usuario";
+        this.usuarioItem.clave = 33;
+    };
     return LoginPage;
 }());
 LoginPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-login',template:/*ion-inline-start:"/Users/mac/Documents/GitHub/proyectoIonic/myqr/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="naranja">\n    <ion-title text-center>Login de Usuario</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n  <ion-list>\n    <ion-item>\n      <ion-label floating>Nombre</ion-label>\n      <ion-input type="text" [(ngModel)]="usuarioItem.nombre"></ion-input>\n    </ion-item>\n      \n    <ion-item>\n      <ion-label floating>Clave</ion-label>\n      <ion-input type="password" [(ngModel)]="usuarioItem.clave"></ion-input>\n    </ion-item>    \n  </ion-list>\n  \n  <div padding>\n    <button ion-button color="naranja" (click)="login()" block>Entrar</button>\n  </div>\n\n  <ion-list>\n    <ion-item>\n      <h2>{{ingreso}}</h2>\n    </ion-item>\n  </ion-list>\n\n  <!--<ion-list>\n    <ion-item *ngFor="let usuario of usuarioListRef$ | async">\n      <h2>Nombre: {{usuario.nombre}}</h2>\n      <h3>Clave: {{usuario.clave}}</h3>\n      <h3>ID: {{usuario.id}}</h3>\n      <h3>Sexo: {{usuario.sexo}}</h3>\n    </ion-item>\n  </ion-list> -->\n</ion-content>\n\n'/*ion-inline-end:"/Users/mac/Documents/GitHub/proyectoIonic/myqr/src/pages/login/login.html"*/,
+        selector: 'page-login',template:/*ion-inline-start:"/Users/mac/Documents/GitHub/proyectoIonic/myqr/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="naranja">\n    <ion-title text-center>Login de Usuario</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n  <ion-list>\n    <ion-item class="animated rotateInDownLeft">\n      <ion-label floating>Nombre</ion-label>\n      <ion-input type="text" [(ngModel)]="usuarioItem.nombre"></ion-input>\n    </ion-item>\n      \n    <ion-item class="animated rotateInDownRight">\n      <ion-label floating>Clave</ion-label>\n      <ion-input type="password" [(ngModel)]="usuarioItem.clave"></ion-input>\n    </ion-item>    \n  </ion-list>\n  \n  <div padding>\n    <button ion-button color="naranja" (click)="login()" class="animated rollIn" block>Entrar</button>\n    <button ion-button color="verde" (click)="loguearAdmin()" class="animated rollIn" full>Como Administrador</button>\n    <button ion-button color="gris" (click)="loguearUsuario()" class="animated rollIn" full>Como Usuario</button> \n  </div>\n\n  <ion-list>\n    <ion-item>\n      <h2>{{ingreso}}</h2>\n    </ion-item>\n  </ion-list>\n\n  <!--<ion-list>\n    <ion-item *ngFor="let usuario of usuarioListRef$ | async">\n      <h2>Nombre: {{usuario.nombre}}</h2>\n      <h3>Clave: {{usuario.clave}}</h3>\n      <h3>ID: {{usuario.id}}</h3>\n      <h3>Sexo: {{usuario.sexo}}</h3>\n    </ion-item>\n  </ion-list> -->\n</ion-content>\n\n'/*ion-inline-end:"/Users/mac/Documents/GitHub/proyectoIonic/myqr/src/pages/login/login.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */]])
 ], LoginPage);

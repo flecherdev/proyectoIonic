@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { AngularFireDatabase } from 'angularfire2/database';
 import { UsuarioItem } from '../../models/usuarios-list/usuarios-list.interface';
-
+import { PrincipalPage } from '../principal/principal';
 
 
 @Component({
@@ -46,6 +46,16 @@ export class LoginPage {
       // profileModal.present();
       }
     });
+  }
+
+  loguearAdmin(){
+    this.usuarioItem.nombre = "admin";
+    this.usuarioItem.clave = 11;
+  }
+
+  loguearUsuario(){
+    this.usuarioItem.nombre = "usuario";
+    this.usuarioItem.clave = 33;
   }
 
 }

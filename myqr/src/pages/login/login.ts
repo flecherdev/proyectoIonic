@@ -52,4 +52,14 @@ export class LoginPage {
     return "ss";*/
   }
 
+  loguearAdmin(){
+    this.usuarioItem.nombre = "admin";
+    this.usuarioItem.clave = 11;
+  }
+
+  loguearUsuario(){
+    this.usuarioItem.nombre = "usuario";
+    this.usuarioItem.clave = 33;
+  }
+
 }

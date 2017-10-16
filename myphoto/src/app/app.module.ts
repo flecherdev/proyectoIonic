@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { LoginPage } from '../pages/login/login';
+import { PrincipalPage } from '../pages/principal/principal';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -16,7 +17,8 @@ import { FIREBASE_CREDENTIALS } from './firebase.credentials';
 @NgModule({
   declarations: [
     MyApp,
-    LoginPage
+    LoginPage,
+    PrincipalPage
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,8 @@ import { FIREBASE_CREDENTIALS } from './firebase.credentials';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LoginPage
+    LoginPage,
+    PrincipalPage
   ],
   providers: [
     StatusBar,
