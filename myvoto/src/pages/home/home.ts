@@ -22,6 +22,7 @@ export class HomePage implements OnInit {
   votoPositivo(voto){
     console.log("Estoy en postivo");
     console.log(voto.tema);
+
     this.votProv.compararNombreYVotacion(this.nombre,voto.tema,"si")
      //s this.votProv.agregar(this.nombre,voto.tema,"si");
   

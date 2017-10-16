@@ -14,15 +14,19 @@ export class VotacionServicioProvider {
   miVoto = {} as VotacionItem[];
   miListaVoto : FirebaseListObservable<VotacionItem[]>;
   miListaVotoRef$ : FirebaseListObservable<VotacionItem[]>;
+  miListaVotoRefMatafuego$: FirebaseListObservable<VotacionItem[]>;
+  miListaVotosRefAdvertencias$: FirebaseListObservable<VotacionItem[]>;
   misTemas: FirebaseListObservable<any[]>;
   lista:Array<any>;
+  
 
   constructor(private datos:AngularFireDatabase, private altCtrl: AlertController) {
     this.miListaVotoRef$ = this.datos.list('votacion');  
     this.miListaVotoRef$.subscribe(datos => {this.lista = datos}); 
   }
 
-  traerVotacionPorNombre(nombre){
+  traerVotacionPorNombre(nombre):Array<VotacionItem>{
+    let listaPorNombre:Array<VotacionItem>;
     try {
       this.miListaVoto = this.datos.list('/votacion',{
         query:{
@@ -30,25 +34,36 @@ export class VotacionServicioProvider {
           equalTo:nombre
         }
       }) as FirebaseListObservable<VotacionItem[]>;
-
+    
+    this.miListaVoto.subscribe(datos => {listaPorNombre = datos} );
       
     } catch (error) {
       console.log(error);
     }
 
-    return this.miListaVoto;
+    return listaPorNombre;
   }
 
 
   compararNombreYVotacion(nombre,votacion,estado){
-    let entro = false;
-    this.traerVotacionPorNombre(nombre).forEach(vot => {
-      if(vot.values().next().value.votacion == votacion){
-
+    let ban = false;
+    this.lista.forEach(vot => {
+      
+      if(vot.votacion == votacion && vot.nombre == nombre){
+        console.log("-------- La votacion ya se realizo -----------");
+        ban = true;
+        return;
       }
       
     });
-    
+
+    if(!ban){
+      console.log("AGREGAR BOTACION");
+      this.agregar(estado,nombre,votacion);
+      return;
+    }else{
+      console.log("NO SE AGREGA VOTACION");
+    }
     
   }
 
@@ -57,15 +72,15 @@ export class VotacionServicioProvider {
     return this.misTemas;
   }
 
-  agregar(nombre,estado,votacion){
-    
+  agregar(estado,nombre,votacion){
+
         let date = new Date();
         console.log(date.getHours()+":"+date.getMinutes()+":"+date.getSeconds());
         let horaActual:string = date.getHours()+":"+date.getMinutes();
         try {
           this.miListaVotoRef$.push({
-            nombre: nombre,
             estado: estado,
+            nombre: nombre,
             votacion: votacion
           });
           
