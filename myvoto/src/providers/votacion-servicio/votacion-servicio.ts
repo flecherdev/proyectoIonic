@@ -15,10 +15,11 @@ export class VotacionServicioProvider {
   miListaVoto : FirebaseListObservable<VotacionItem[]>;
   miListaVotoRef$ : FirebaseListObservable<VotacionItem[]>;
   misTemas: FirebaseListObservable<any[]>;
-  
+  lista:Array<any>;
 
   constructor(private datos:AngularFireDatabase, private altCtrl: AlertController) {
-    this.miListaVotoRef$ = this.datos.list('votacion');   
+    this.miListaVotoRef$ = this.datos.list('votacion');  
+    this.miListaVotoRef$.subscribe(datos => {this.lista = datos}); 
   }
 
   traerVotacionPorNombre(nombre){
@@ -43,7 +44,7 @@ export class VotacionServicioProvider {
     let entro = false;
     this.traerVotacionPorNombre(nombre).forEach(vot => {
       if(vot.values().next().value.votacion == votacion){
-        
+
       }
       
     });
