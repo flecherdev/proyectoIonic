@@ -4,7 +4,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { EstadoVotacionPage } from '../pages/estado-votacion/estado-votacion';
 
@@ -22,7 +21,6 @@ import { VotacionServicioProvider } from '../providers/votacion-servicio/votacio
     MyApp,
     LoginPage,
     HomePage,
-    ListPage,
     EstadoVotacionPage
   ],
   imports: [
@@ -36,7 +34,6 @@ import { VotacionServicioProvider } from '../providers/votacion-servicio/votacio
     MyApp,
     LoginPage,
     HomePage,
-    ListPage,
     EstadoVotacionPage
   ],
   providers: [
@@ -44,8 +41,6 @@ import { VotacionServicioProvider } from '../providers/votacion-servicio/votacio
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     VotacionServicioProvider,
- 
- 
   ]
 })
 export class AppModule {}

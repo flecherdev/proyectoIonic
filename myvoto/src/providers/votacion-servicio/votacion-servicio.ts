@@ -18,13 +18,16 @@ export class VotacionServicioProvider {
   miListaVotosRefAdvertencias$: FirebaseListObservable<VotacionItem[]>;
   misTemas: FirebaseListObservable<any[]>;
   lista:Array<any>;
-  
+  listaMatafuego:Array<any>;
+  listaAdvertencia:Array<any>;
 
   constructor(private datos:AngularFireDatabase, private altCtrl: AlertController) {
     this.miListaVotoRef$ = this.datos.list('votacion');  
     this.miListaVotoRefMatafuego$ = this.datos.list('votacion-matafuegos');
     this.miListaVotosRefAdvertencias$ = this.datos.list('votacion-advertencia');
     this.miListaVotoRef$.subscribe(datos => {this.lista = datos}); 
+    this.miListaVotoRefMatafuego$.subscribe(datos => {this.listaMatafuego = datos});
+    this.miListaVotosRefAdvertencias$.subscribe(datos => {this.listaAdvertencia = datos});
   }
 
   traerVotacionPorNombre(nombre):Array<VotacionItem>{
@@ -46,18 +49,59 @@ export class VotacionServicioProvider {
     return listaPorNombre;
   }
 
+  traerPlantas(){
+    return this.miListaVotoRef$;
+  }
+
+  traerMatafuegos(){
+    return this.miListaVotoRefMatafuego$;
+  }
+
+  traerAdvertencias(){
+    return this.miListaVotosRefAdvertencias$;
+  }
 
   compararNombreYVotacion(nombre,votacion,estado){
     let ban = false;
-    this.lista.forEach(vot => {
-      
-      if(vot.votacion == votacion && vot.nombre == nombre){
-        console.log("-------- La votacion ya se realizo -----------");
-        ban = true;
-        return;
-      }
-      
-    });
+
+    switch (votacion) {
+      case "Colocar plantas":
+      this.lista.forEach(vot => {
+        
+        if(vot.votacion == votacion && vot.nombre == nombre){
+          console.log("-------- La votacion ya se realizo -----------");
+          ban = true;
+          return;
+        }
+        
+      });
+        break;
+      case "Colocar matafuegos":
+      this.listaMatafuego.forEach(vot => {
+        
+        if(vot.votacion == votacion && vot.nombre == nombre){
+          console.log("-------- La votacion ya se realizo -----------");
+          ban = true;
+          return;
+        }
+        
+      });
+        break;
+      case "Colocar señales de advertencia":
+      this.listaAdvertencia.forEach(vot => {
+        
+        if(vot.votacion == votacion && vot.nombre == nombre){
+          console.log("-------- La votacion ya se realizo -----------");
+          ban = true;
+          return;
+        }
+        
+      });
+       break;
+      default:
+        break;
+    }
+    
 
     if(!ban){
       console.log("AGREGAR BOTACION");
@@ -65,6 +109,7 @@ export class VotacionServicioProvider {
       return;
     }else{
       console.log("NO SE AGREGA VOTACION");
+      this.presentAlert("Advertencia!!!","Ya emitio su voto para este tema")
     }
     
   }

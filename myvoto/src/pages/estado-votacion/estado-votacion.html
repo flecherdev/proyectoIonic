@@ -15,5 +15,14 @@
 
 
 <ion-content padding>
+  <button ion-button color="verde" (click)="presentActionSheet()" class="animated fadeIn" block>Votaciones</button>
+
+  <ion-list>
+    <ion-item *ngFor="let vota of lista ">
+      <h2>{{vota.nombre}}</h2>
+      <h3>{{vota.votacion}}</h3>
+      <h3>{{vota.estado}}</h3>
+    </ion-item>
+  </ion-list>
 
 </ion-content>

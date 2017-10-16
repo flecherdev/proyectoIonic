@@ -4,7 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+
 import { LoginPage } from '../pages/login/login';
 import { EstadoVotacionPage } from '../pages/estado-votacion/estado-votacion';
 
@@ -25,7 +25,7 @@ export class MyApp {
     this.pages = [
       { title: 'Mi Voto', component: HomePage },
       { title: 'Estado de votacion', component: EstadoVotacionPage},
-      { title: 'Usuarios que votaron', component: ListPage }
+     // { title: 'Usuarios que votaron', component: ListPage }
     ];
 
   }
