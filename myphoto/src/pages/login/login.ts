@@ -13,8 +13,10 @@ import { UsuarioItem } from '../../models/usuarios-list/usuarios-list.interface'
 export class LoginPage {
 
   usuarioItem =  {} as UsuarioItem;
-  ingreso = "";
-  public usuarios: UsuarioItem[];
+  nombre:string;
+  foto:string;
+  usuarios: UsuarioItem[];
+  usuario:UsuarioItem;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private database: AngularFireDatabase) {
     //this.usuarioListRef$ = this.database.list('usuarios');
@@ -23,21 +25,27 @@ export class LoginPage {
 
   login(){
     console.log(this.usuarios);
-    this.ingreso = this.buscarUsuario(this.usuarioItem);
+    //this.ingreso = this.buscarUsuario(this.usuarioItem);
+    this.buscarUsuario(this.usuarioItem);
   }
 
-  buscarUsuario(usuario: UsuarioItem):string{
-    let retorno = "El usuario no esta registrado";
-
-    let miUsuario: UsuarioItem;
+  buscarUsuario(usuario: UsuarioItem):void{
+    //let retorno = "El usuario no esta registrado";
 
     this.usuarios.forEach(usuarios => {
+      let thit=this;
       if((usuarios.nombre == usuario.nombre) && (usuarios.clave == usuario.clave)){
-        return retorno = "El usuario se logeo";
+        this.nombre = usuarios.nombre;
+        //this.foto = usuarios.foto;
+        
+        console.log(usuarios.nombre);
+        //console.log(usuarios.foto);
+        this.navCtrl.setRoot(PrincipalPage,{usuario:this.usuarioItem.nombre});//se pasa un parametro a otra pagina
+      // this.navCtrl.setRoot(TabsPage,{"usu": "pepe"});
+      // const profileModal = this.ModalCtrl.create(TabsPage,{nombre : this.nombre});
+      // profileModal.present();
       }
     });
-
-    return retorno;
   }
 
 }
