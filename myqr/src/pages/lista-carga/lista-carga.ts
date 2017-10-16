@@ -11,23 +11,23 @@ import { AlertController } from 'ionic-angular';
 })
 export class ListaCargaPage {
 
+  lista:Array<any>;
   codigosListRef$ : FirebaseListObservable<Codigos[]>;
-  cost:number;
+  total:number=0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl:AlertController, private database:AngularFireDatabase) {
     this.codigosListRef$ = this.database.list('codigos-lista');
-  
-    console.log(this.cost.toString());
-    //this.codigosListRef$ = this.database.list('codigos-lista');
-    //console.log(this.codigosListRef$);
+    this.codigosListRef$.subscribe(datos => {
+      this.lista = datos;
+    });    
+    this.contar();
   }
 
-
   contar(){
-    this.codigosListRef$.forEach(dato => {
-      this.cost+= dato.values().next().value.valor
+    this.lista.forEach(codigo => {
+      console.log(codigo.valor);
+      this.total += codigo.valor;
     });
-    //this.presentValor(this.cost.toString());
   }
 
   presentValor(text:string) {

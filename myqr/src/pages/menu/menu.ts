@@ -4,7 +4,7 @@ import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-sca
 import { Toast } from '@ionic-native/toast';
 import { ToastController } from 'ionic-angular';
 import { ListaCargaPage } from '../lista-carga/lista-carga';
-import { FirebaseListObservable, AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
+import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/database';
 import { Codigos } from '../../models/codigos-list/codigos-list.interface';
 
 //mi alert
@@ -24,23 +24,20 @@ export class MenuPage {
   codigosListRef$ : FirebaseListObservable<Codigos[]>;
   codigosCargaRef$ : FirebaseListObservable<Codigos[]>;
 
-  valor : FirebaseObjectObservable<Codigos[]> ;
   codigoItem = {} as Codigos;
-
-
   codigoDeBusqueda : Codigos;
+
+  listaCodigo:Array<any>;
+  listaCodigoCargado:Array<any>;
     
   constructor(public navCtrl: NavController, public navParams: NavParams, private barcodeScanner: BarcodeScanner
               ,private toast: Toast, private database: AngularFireDatabase, private alertCtrl:AlertController) {
                 this.codigosListRef$ = this.database.list('codigos-lista');
                 this.codigosCargaRef$ = this.database.list('codigos');
-                this.valor = this.database.object('estado');
+                this.codigosListRef$.subscribe(datos => {this.listaCodigo = datos});
+                this.codigosCargaRef$.subscribe(datos => {this.listaCodigoCargado = datos});
               }
-  // Mofificacion de codigos y estados
-  
-  
-
-
+ 
   async scan(){
     this.options = {
         prompt : "Escanea el QR"
@@ -49,7 +46,7 @@ export class MenuPage {
    
         this.scanData = barcodeData;
         this.navParams.data = barcodeData;
-        this.verificarCodigos(barcodeData.text.trim())
+        this.verificarCodigos(barcodeData.text.trim());
  
     }, (err) => {
         console.log("Sucedio un error : " + err);
@@ -57,104 +54,78 @@ export class MenuPage {
   }   
   
   verificarCodigos(datosBar:string){
-    //this.presentValor(datosBar);
-    var cod2:Codigos;
-    var cod1:Codigos;
-    var ingreso:boolean=false;
-    var codigoDeBusqueda = this.traerUnCodigo(datosBar.trim());
-    var codigoUsuario = this.traerUnCodigoUsuario(datosBar.trim());
+    let ban = false;
+    let exist = false;
+    let codigoAgregar: Codigos;
 
-    
-      codigoDeBusqueda.forEach(codigo1 =>{
-        codigoUsuario.forEach(codigo2 => {
-          console.log(codigo2.lendatosBarg);
-          if(typeof codigo2[0] !== 'undefined'){
-            if (codigo1.values().next().value.clave == codigo2.values().next().value.clave) {
-              cod1=codigo1.values().next().value.clave
-              cod2= codigo2.values().next().value.clave;
-              //ingreso = true;
-            }
-          }else{
-            cod1 = codigo1.values().next().value;
-            this.agregarCodigo(cod1);
-            
-          }
-        });
+    if(this.elCodigoExiste(datosBar)){ //existe o no en codigos para cargar
+      exist = true;
+      this.listaCodigo.forEach(codigo => {
+        if(codigo.clave == datosBar){
+          ban = true;
+          return;
+        }
       });
+    }else{
+
+    }
     
+    if(exist){
+      if(!ban){
+        console.log("------------ Se agrega el codigo -----------");
+        this.agregarCodigo(this.traerUnCodigo(datosBar));
+       this.presentValor("se agrega codigo ");
+      }else{
+        console.log("------------ No se agrega el codigo --------------");
+        this.presentValor("La carga se realizo con anterioridad ");
+      }
+    }
      
   }
- /* mostrar(){
-    this.codigos.forEach(codigo =>{
-      console.log(codigo.clave +" "+codigo.valor);
-    });
-  }*/
 
   listaCarga(){ //utilizar despues
     //this.navCtrl.setRoot(ListaCargaPage,this.navParams);
     this.navCtrl.push(ListaCargaPage);
   }
   
-  traerUnCodigo(codigo):any{
+  traerUnCodigo(codigo):Codigos{ // funciona con test
   
-    let codigoBusqueda : FirebaseListObservable<Codigos[]>;
-  
-    try {
-      codigoBusqueda = this.database.list('/codigos', {
-        query: {
-          orderByChild: 'clave',
-          equalTo: codigo
-        }
-      });
-    } catch (error) {
-      console.log(error);
-      return false;
-    }
+    let codigoBusqueda : Codigos;
     
-
+    this.listaCodigoCargado.forEach( micodigo => {
+      if(micodigo.clave == codigo){
+        codigoBusqueda = micodigo;
+       // this.presentValor("el codigo se traer: "+micodigo.clave);
+        return;
+      }
+    });
+    //this.presentValor("El codigo:"+ codigo.clave);
     return codigoBusqueda;
   }
 
-  traerUnCodigoUsuario(codigo):any{
-    let codigoBusqueda : FirebaseListObservable<Codigos[]>;
- 
-    try {
-      codigoBusqueda = this.database.list('/codigos-lista',{
-        query: {
-          orderByChild: 'clave',
-          equalTo: codigo
-        }
-      });
-      this.presentValor("El codigo ya se encuentra cargado");
-    } catch (error) {
-      console.log("Error: "+error);
+  elCodigoExiste(micodigo):boolean{ // funciona con test
+    let ban = false;
 
-    }
-    
-      return codigoBusqueda;
-    }
-
-    verificarUsuario(codigo):boolean{
-
-      let codigoBusqueda : FirebaseListObservable<Codigos[]>;
-   
-      try {
-        codigoBusqueda = this.database.list('/codigos-lista',{
-          query: {
-            orderByChild: 'clave',
-            equalTo: codigo
-          }
-        });
-        //this.presentValor("El codigo ya se encuentra cargado");
-      } catch (error) {
-        console.log("Error: "+error);
-  
+    this.listaCodigoCargado.forEach(codigo => {
+      if(codigo.clave == micodigo ){
+        ban = true;
+        //this.presentValor("El codigo existe:"+codigo.clave);
+        return;
       }
-      
-        return codigoBusqueda._isScalar;
-      }
+    });
 
-  // mis alert
+    if(ban){
+      console.log("------------- El codigo existe en la lista ----------------");
+      //this.presentValor("El codigo existe: ");
+    }else{
+      console.log("------------- El codigo no existe -------------------------");
+      this.miToast("El codigo no existe ");
+    }
+
+    return ban;
+  }
+
+  // mis alert  
 
   presentAlert() {
     const alert = this.alertCtrl.create({
@@ -191,15 +162,14 @@ export class MenuPage {
         clave: codigos.clave,
         valor: Number(codigos.valor)
       });
-      this.presentValor("Se agrego el codigo");
+      //this.presentValor("Se agrego el codigo");
       //Reser de shoppingItem
     this.codigoItem = {} as Codigos;
       return true;
     } catch (error) {
       return false;
     }
-    //Volver a la pagina de ShoppingList
-    //this.navCtrl.pop();
+
   }
 
 
@@ -207,12 +177,13 @@ export class MenuPage {
     
   }
 
-  /*function writeUserData(userId, name, email, imageUrl) {
-    firebase.database().ref('users/' + userId).set({
-      username: name,
-      email: email,
-      profile_picture : imageUrl
-    });
-  }*/
+  miToast(mensaje){
+    this.toast.show(mensaje, '5000', 'center').subscribe(
+      toast => {
+        console.log(toast);
+      }
+    );
+  }
+  
 
 }

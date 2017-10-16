@@ -14,21 +14,21 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item class="animated rotateInDownLeft">
+    <ion-item class="animated flash">
       <ion-label floating>Nombre</ion-label>
       <ion-input type="text" [(ngModel)]="usuarioItem.nombre"></ion-input>
     </ion-item>
       
-    <ion-item class="animated rotateInDownRight">
+    <ion-item class="animated flash">
       <ion-label floating>Clave</ion-label>
       <ion-input type="password" [(ngModel)]="usuarioItem.clave"></ion-input>
     </ion-item>    
   </ion-list>
   
   <div padding>
-    <button ion-button color="naranja" (click)="login()" class="animated rollIn" block>Entrar</button>
-    <button ion-button color="verde" (click)="loguearAdmin()" class="animated rollIn" full>Como Administrador</button>
-    <button ion-button color="gris" (click)="loguearUsuario()" class="animated rollIn" full>Como Usuario</button> 
+    <button ion-button color="naranja" (click)="login()" class="animated tada" block>Entrar</button>
+    <button ion-button color="verde" (click)="loguearAdmin()" class="animated tada" full>Como Administrador</button>
+    <button ion-button color="gris" (click)="loguearUsuario()" class="animated tada" full>Como Usuario</button> 
   </div>
 
   <ion-list>

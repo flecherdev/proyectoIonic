@@ -1,21 +1,10 @@
-/**
- * Copyright 2017 Google Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+/*! @license Firebase v3.9.0
+Build: rev-cc77c9e
+Terms: https://firebase.google.com/terms/ */
+
 /**
  * @fileoverview Firebase Storage API.
- * Version: ${JSCORE_VERSION}
+ * Version: 3.9.0
  *
  * Copyright 2017 Google Inc. All Rights Reserved.
  *
@@ -232,10 +221,8 @@ firebase.storage.StringFormat = {
  *     doesn't conform to the specified format.
  */
 firebase.storage.Reference.prototype.putString = function(
-  data,
-  format,
-  metadata
-) {};
+    data, format, metadata) {};
+
 
 /**
  * Deletes the object at this reference's location.
@@ -263,6 +250,7 @@ firebase.storage.Reference.prototype.getMetadata = function() {};
  */
 firebase.storage.Reference.prototype.updateMetadata = function(metadata) {};
 
+
 /**
  * Fetches a long lived download URL for this object.
  * @return {!firebase.Promise<string>} A Promise that resolves with the download
@@ -271,12 +259,14 @@ firebase.storage.Reference.prototype.updateMetadata = function(metadata) {};
  */
 firebase.storage.Reference.prototype.getDownloadURL = function() {};
 
+
 /**
  * A reference pointing to the parent location of this reference, or null if
  * this reference is the root.
  * @type {?firebase.storage.Reference}
  */
 firebase.storage.Reference.prototype.parent;
+
 
 /**
  * A reference to the root of this reference's bucket.
@@ -308,6 +298,7 @@ firebase.storage.Reference.prototype.name;
  * @type {!firebase.storage.Storage}
  */
 firebase.storage.Reference.prototype.storage;
+
 
 /**
  * Object metadata that can be set at any time.
@@ -482,10 +473,8 @@ firebase.storage.UploadTask = function() {};
  * @param {(?function(!Error):*)=} onRejected The rejection callback.
  * @return {!firebase.Promise}
  */
-firebase.storage.UploadTask.prototype.then = function(
-  onFulfilled,
-  onRejected
-) {};
+firebase.storage.UploadTask.prototype.then = function(onFulfilled, onRejected) {
+};
 
 /**
  * Equivalent to calling `then(null, onRejected)`.
@@ -583,30 +572,25 @@ firebase.storage.UploadTask.prototype.catch = function(onRejected) {};
  * });
  *
  * @param {!firebase.storage.TaskEvent} event The event to listen for.
- * @param {(?firebase.Observer<firebase.storage.UploadTaskSnapshot,Error>|
- *       ?function(!Object))=} nextOrObserver
- *     The `next` function, which gets called for each item in
- *     the event stream, or an observer object with some or all of these three
- *     properties (`next`, `error`, `complete`).
+ * @param {(?function(!Object)|!Object)=} nextOrObserver The `next` function,
+ *     which gets called for each item in the event stream, or an observer
+ *     object with some or all of these three properties (`next`, `error`,
+ *     `complete`).
  * @param {?function(!Error)=} error A function that gets called with an Error
  *     if the event stream ends due to an error.
- * @param {?firebase.CompleteFn=} complete A function that gets called if the
+ * @param {?function()=} complete A function that gets called if the
  *     event stream ends normally.
  * @return {
- *     !firebase.Unsubscribe|
- *     !function(?function(!Object),?function(!Error)=,?firebase.CompleteFn=)
- *       :!firebase.Unsubscribe}
+ *     !function()|
+ *     !function(?function(!Object),?function(!Error)=,?function()=)
+ *       :!function()}
  *     If only the event argument is passed, returns a function you can use to
  *     add callbacks (see the examples above). If more than just the event
  *     argument is passed, returns a function you can call to unregister the
  *     callbacks.
  */
 firebase.storage.UploadTask.prototype.on = function(
-  event,
-  nextOrObserver,
-  error,
-  complete
-) {};
+    event, nextOrObserver, error, complete) {};
 
 /**
  * Resumes a paused task. Has no effect on a running or failed task.
