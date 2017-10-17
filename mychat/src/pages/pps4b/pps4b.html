@@ -15,14 +15,14 @@
 
 <ion-content padding>
     <ion-list>
-        <ion-item>
+        <ion-item class="animated zoomIn">
           <ion-label floating>Mensaje</ion-label>
           <ion-input type="text" [(ngModel)]="mensaje"></ion-input> <!-- [(ngModel)]="usuario.nombre" -->
         </ion-item>   
       </ion-list>
           
       <div padding>
-        <button ion-button color="celeste" (click)="agregarItem()" block >Entrar</button>
+        <button ion-button color="celeste" class="animated zoomIn" (click)="agregarItem()" block >Entrar</button>
         <!-- <button ion-button (click)="login()">Registrase</button> -->
       </div>
     
