@@ -3,7 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { AngularFireDatabase } from 'angularfire2/database';
 import { UsuarioItem } from '../../models/usuarios-list/usuarios-list.interface';
-import { PrincipalPage } from '../principal/principal';
+
+import { CuerdaPage } from '../cuerda/cuerda';
 
 
 @Component({
@@ -35,7 +36,7 @@ export class LoginPage {
     this.usuarios.forEach(usuarios => {
       if((usuarios.nombre == usuario.nombre) && (usuarios.clave == usuario.clave)){
         //return retorno = "El usuario se logeo";
-        this.navCtrl.setRoot(PrincipalPage);  
+        this.navCtrl.setRoot(CuerdaPage);  
       }
     });
 

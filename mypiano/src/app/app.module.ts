@@ -18,6 +18,8 @@ import { FIREBASE_CREDENTIALS } from './firebase.credentials';
 
 import { NativeAudio } from '@ionic-native/native-audio';
 
+import { ToastController } from 'ionic-angular';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -46,6 +48,7 @@ import { NativeAudio } from '@ionic-native/native-audio';
     StatusBar,
     SplashScreen,
     NativeAudio,
+    ToastController,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
